@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Services\SpotifyService;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Dedoc\Scramble\Attributes\HeaderParameter;
 use Throwable;
 
 class SpotifyController extends Controller
@@ -16,7 +18,11 @@ class SpotifyController extends Controller
         $this->spotify = $spotify;
     }
 
-    public function searchItems(Request $request)
+    /**
+     * Search items
+     */
+    #[HeaderParameter(name: 'Authorization', type: 'string',  description: 'Bearer token for Sanctum authentication')]
+    public function searchItems(Request $request): JsonResponse
     {
         $validated = $request->validate([
             'type' => 'required|string',
@@ -39,6 +45,10 @@ class SpotifyController extends Controller
         return response()->json($result);
     }
 
+    /**
+     * Get artist
+     */
+    #[HeaderParameter(name: 'Authorization', type: 'string',  description: 'Bearer token for Sanctum authentication')]
     public function getArtist(Request $request)
     {
         $validated = $request->validate([
@@ -57,6 +67,10 @@ class SpotifyController extends Controller
         return response()->json($result);
     }
 
+    /**
+     * Get several artists
+     */
+    #[HeaderParameter(name: 'Authorization', type: 'string',  description: 'Bearer token for Sanctum authentication')]
     public function getSeveralArtists(Request $request)
     {
         $validated = $request->validate([
@@ -75,6 +89,10 @@ class SpotifyController extends Controller
         return response()->json($result);
     }
 
+    /**
+     * Get artist's albums
+     */
+    #[HeaderParameter(name: 'Authorization', type: 'string',  description: 'Bearer token for Sanctum authentication')]
     public function getArtistAlbums(Request $request, string $id)
     {
         $request->merge(['id' => $id]);
