@@ -9,32 +9,39 @@ There might still be areas for improvement! :)
 -   `laravel/sanctum`: 4.0 (for API authentication)
 -   `dedoc/scramble`: 0.12.10 (for API documentation)
 
-### Start Coding
+### Installation Instructions
 
-1. Install dependencies:
+1. Clone the repository:
+
+    ```bash
+    git clone git@github.com:passionate-laravel-dev/spotify-api.git
+    cd spotify-api
+    ```
+
+2. Install dependencies:
 
     ```bash
     composer install
 
     ```
 
-2. Generate the Laravel key:
+3. Generate the Laravel key:
 
     ```bash
     php artisan key:generate
 
     ```
 
-3. Configure the database access in the `.env` file.
+4. Configure the database access in the `.env` file.
 
-4. Generate the database and seed it
+5. Generate the database and seed it
 
     ```bash
     php artisan migrate --seed
 
     ```
 
-5. Run the project
+6. Run the project
 
     ```bash
     php artisan serve
