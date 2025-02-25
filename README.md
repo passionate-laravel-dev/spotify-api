@@ -70,6 +70,7 @@ Authorization: Bearer {your_token_here}
 ```
 
 **POST** `api/auth/signin` - User sign-in
+
 Test user info
 
 ```json
