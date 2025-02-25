@@ -11,6 +11,9 @@ use Throwable;
 
 class AuthenticationController extends Controller
 {
+    /**
+     * Signin
+     */
     public function signin(Request $request)
     {
         $validated = $request->validate([
@@ -39,6 +42,9 @@ class AuthenticationController extends Controller
         }
     }
 
+    /**
+     * Signup
+     */
     public function signup(Request $request)
     {
         $validated = $request->validate([
