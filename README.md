@@ -11,37 +11,45 @@ There might still be areas for improvement! :)
 
 ### Installation Instructions
 
-1. Clone the repository:
+1.  Clone the repository:
 
     ```bash
     git clone git@github.com:passionate-laravel-dev/spotify-api.git
     cd spotify-api
     ```
 
-2. Install dependencies:
+2.  Install dependencies:
 
     ```bash
     composer install
 
     ```
 
-3. Generate the Laravel key:
+3.  Generate the Laravel key:
 
     ```bash
     php artisan key:generate
 
     ```
 
-4. Configure the database access in the `.env` file.
+4.  Configure the database access, and SPOTIFY credential in the `.env` file.
 
-5. Generate the database and seed it
+    ```json
+    {
+        "SPOTIFY_CLIENT": "",
+        "SPOTIFY_SECRET": "",
+        "SPOTIFY_APIURL": "https://api.spotify.com/v1/"
+    }
+    ```
+
+5.  Generate the database and seed it
 
     ```bash
     php artisan migrate --seed
 
     ```
 
-6. Run the project
+6.  Run the project
 
     ```bash
     php artisan serve
@@ -56,7 +64,9 @@ For all API calls (except signin and signup), include a Bearer token in the head
 Example header:
 
 ```
+
 Authorization: Bearer {your_token_here}
+
 ```
 
 **POST** `api/auth/signin` - User sign-in
