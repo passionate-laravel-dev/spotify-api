@@ -34,7 +34,7 @@ class SpotifyController extends Controller
         ]);
 
         try {
-            $result = $this->spotify->searchItems($validated['type'], $validated['query']);
+            $result = $this->spotify->searchItems($validated);
         } catch (Throwable $e) {
             return response()->json([
                 'error' => 'Failed to fetch data from Spotify',
