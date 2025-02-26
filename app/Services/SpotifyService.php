@@ -75,19 +75,18 @@ class SpotifyService
     /**
      * Search items from Spotify
      * 
-     * @param string $type
-     * @param string $query
+     * @param array $data
      * @return array
      */
-    public function searchItems(string $type, string $query): array
+    public function searchItems(array $data): array
     {
         try {
             $this->ensureAccessToken();
 
             return Http::withToken($this->accessToken)
                 ->get($this->apiUrl . 'search', [
-                    'q' => $query,
-                    'type' => $type,
+                    'q' => $data['query'],
+                    'type' => $data['type'],
                     'market' => $data['market'] ?? '',
                     'limit' => $data['limit'] ?? '',
                     'offset' => $data['offset'] ?? '',
